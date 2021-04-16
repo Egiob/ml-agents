@@ -33,7 +33,8 @@ public class CrawlerAgent : Agent
         get { return m_TargetWalkingSpeed; }
         set { m_TargetWalkingSpeed = Mathf.Clamp(value, .1f, m_maxWalkingSpeed); }
     }
-
+    
+    public float DirectionalIncentive;
     //The direction an agent will walk during training.
     [Header("Target To Walk Towards")]
     public Transform TargetPrefab; //Target prefab to use in Dynamic envs

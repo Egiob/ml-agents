@@ -1,0 +1,23 @@
+{
+    "Crawler": {
+        "checkpoints": [
+            {
+                "steps": 77903,
+                "file_path": "results\\ReverseCrawler1\\Crawler\\Crawler-77903.onnx",
+                "reward": null,
+                "creation_time": 1618577801.0173619
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 77903,
+            "file_path": "results\\ReverseCrawler1\\Crawler.onnx",
+            "reward": null,
+            "creation_time": 1618577801.0173619
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.8.1"
+    }
+}

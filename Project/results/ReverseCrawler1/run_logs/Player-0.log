@@ -1,0 +1,49 @@
+Mono path[0] = 'C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Managed'
+Mono config path = 'C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/MonoBleedingEdge/etc'
+PlayerConnection initialized from C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55500
+Multi-casting "[IP] 10.30.216.131 [Port] 55500 [Flags] 2 [Guid] 1756237443 [EditorId] 1695771160 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-G421A54) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] UnityEnvironment" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55500]
+PlayerConnection already initialized - listening to [0.0.0.0:55500]
+Initialize engine version: 2020.3.3f1 (76626098c1c4)
+[Subsystems] Discovering subsystems at path C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics (ID=0x9b41)
+    Vendor:   
+    VRAM:     8083 MB
+    Driver:   27.20.100.8935
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.188 seconds
+D3D11 device created for Microsoft Media Foundation video decoding.
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.823200 ms
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libcoreclr.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libcoreclr.so.dll
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libcoreclr.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libdl.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libdl.so.dll
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libdl.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libSystem.dylib
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libSystem.dylib.dll
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libSystem.dylib
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libcoreclr.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libcoreclr.so.dll
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libcoreclr.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libdl.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libdl.so.dll
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libdl.so
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libSystem.dylib
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libSystem.dylib.dll
+Fallback handler could not load library C:/Users/rapha/Documents/Stage M2/ml-agents/Project/ReverseCrawler1/UnityEnvironment_Data/Mono/libSystem.dylib
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 5a44 -> priority: 1 
+  Thread -> id: 5828 -> priority: 1 
+  Thread -> id: 1a50 -> priority: 1 
+  Thread -> id: e74 -> priority: 1 
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1618577802120,"processId":23948,"allocatedMemory":217091,"memoryLabels":[{"Permanent":40},{"NewDelete":256},{"Thread":144},{"Manager":1520},{"GfxDevice":210584},{"Serialization":456},{"WebCam":32},{"String":515},{"HashMap":1536},{"PoolAlloc":56},{"GI":296},{"VR":1560},{"Subsystems":96}]}
+
