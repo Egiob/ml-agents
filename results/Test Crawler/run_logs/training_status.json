@@ -1,0 +1,23 @@
+{
+    "Crawler": {
+        "checkpoints": [
+            {
+                "steps": 153800,
+                "file_path": "results/Test Crawler/Crawler/Crawler-153800.onnx",
+                "reward": null,
+                "creation_time": 1618584086.9065335
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 153800,
+            "file_path": "results/Test Crawler/Crawler.onnx",
+            "reward": null,
+            "creation_time": 1618584086.9065335
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.1",
+        "torch_version": "1.8.1+cu102"
+    }
+}
