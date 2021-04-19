@@ -1,0 +1,41 @@
+{
+    "Crawler": {
+        "checkpoints": [
+            {
+                "steps": 499589,
+                "file_path": "results/Test Crawler 4 ppo/Crawler/Crawler-499589.onnx",
+                "reward": 168.38623282313347,
+                "creation_time": 1618825584.7184143
+            },
+            {
+                "steps": 999964,
+                "file_path": "results/Test Crawler 4 ppo/Crawler/Crawler-999964.onnx",
+                "reward": 914.8338649974149,
+                "creation_time": 1618826247.0846343
+            },
+            {
+                "steps": 1499247,
+                "file_path": "results/Test Crawler 4 ppo/Crawler/Crawler-1499247.onnx",
+                "reward": 1291.7379261255264,
+                "creation_time": 1618826912.1761606
+            },
+            {
+                "steps": 1610074,
+                "file_path": "results/Test Crawler 4 ppo/Crawler/Crawler-1610074.onnx",
+                "reward": 1280.516142471977,
+                "creation_time": 1618827059.4464808
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1610074,
+            "file_path": "results/Test Crawler 4 ppo/Crawler.onnx",
+            "reward": 1280.516142471977,
+            "creation_time": 1618827059.4464808
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.1",
+        "torch_version": "1.8.1+cu102"
+    }
+}
