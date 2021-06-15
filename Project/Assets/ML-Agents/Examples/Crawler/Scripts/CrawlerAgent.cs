@@ -3,11 +3,19 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgentsExamples;
 using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Policies;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(JointDriveController))] // Required to set joint forces
 public class CrawlerAgent : Agent
 {
+
+
+    [Header("Skill")]
+    public int numSkills = 2;
+    public int activeSkill = 0;
+    public bool useSkills = false;
+
 
     [Header("Walk Speed")]
     [Range(0.1f, m_maxWalkingSpeed)]
@@ -167,6 +175,18 @@ public class CrawlerAgent : Agent
         {
             CollectObservationBodyPart(bodyPart, sensor);
         }
+
+        if (useSkills) {
+            for (int i=0;i<numSkills;i++){
+                if (i==activeSkill){
+                    sensor.AddObservation(1);
+
+                }
+                else{
+                    sensor.AddObservation(0);
+                }
+        }
+    }
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
