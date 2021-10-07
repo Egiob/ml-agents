@@ -5,16 +5,34 @@ using Unity.MLAgentsExamples;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Policies;
 using Random = UnityEngine.Random;
+using Unity.MLAgents.SideChannels;
 
 [RequireComponent(typeof(JointDriveController))] // Required to set joint forces
 public class CrawlerAgent : Agent
 {
+    CameraSideChannel cameraChannel;
 
+    [Header("Discriminateur")]
+    public Discriminateur discriminateur; 
+    public Rigidbody[] rbs;
+    public bool useCamera=false;
 
     [Header("Skill")]
-    public int numSkills = 2;
-    public int activeSkill = 0;
+    
+
+    [Range(1, numSkills)]
+    [SerializeField]
+    private int activeSkill = numSkills;
+
+
+    public const int numSkills = 5;
+
     public bool useSkills = false;
+
+    [Header("Texture")]
+    public RenderTexture tex;
+    private Texture2D tmpTex;
+
 
 
     [Header("Walk Speed")]
@@ -78,7 +96,19 @@ public class CrawlerAgent : Agent
     public override void Initialize()
     {
         SpawnTarget(TargetPrefab, transform.position); //spawn target
+        
 
+        if (useCamera){
+        RenderTexture.active = tex;
+        tmpTex = new Texture2D(tex.width, tex.height);
+        tmpTex.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
+        tmpTex.Apply();
+        Debug.Log(tmpTex.GetPixel(0,0));
+
+        cameraChannel = new CameraSideChannel();
+        SideChannelManager.RegisterSideChannel(cameraChannel);
+
+        }
         m_OrientationCube = GetComponentInChildren<OrientationCubeController>();
         m_DirectionIndicator = GetComponentInChildren<DirectionIndicator>();
         m_JdController = GetComponent<JointDriveController>();
@@ -121,7 +151,8 @@ public class CrawlerAgent : Agent
         UpdateOrientationObjects();
 
         //Set our goal walking speed
-        TargetWalkingSpeed = Random.Range(0.1f, m_maxWalkingSpeed);
+        //TargetWalkingSpeed = Random.Range(0.1f, m_maxWalkingSpeed);
+        TargetWalkingSpeed = m_maxWalkingSpeed;
     }
 
     /// <summary>
@@ -142,7 +173,28 @@ public class CrawlerAgent : Agent
     /// Loop over body parts to add them to observation.
     /// </summary>
     public override void CollectObservations(VectorSensor sensor)
-    {
+    {   
+
+
+        if (useCamera){
+        RenderTexture.active = tex;
+        tmpTex.ReadPixels(new Rect(0, 0, tex.width, tex.height), 0, 0);
+        tmpTex.Apply();
+        
+
+        Vector4 pixel;
+        for (int l=0; l<tex.height;l++){
+            for (int k = 0; k<tex.width;k++){
+
+                pixel = tmpTex.GetPixel(k,l);
+                cameraChannel.SendMessageToPython(pixel.ToString());
+
+            }
+        }
+        }
+
+
+
         var cubeForward = m_OrientationCube.transform.forward;
 
         //velocity we want to match
@@ -185,8 +237,9 @@ public class CrawlerAgent : Agent
                 else{
                     sensor.AddObservation(0);
                 }
+            }
+
         }
-    }
     }
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
@@ -215,6 +268,7 @@ public class CrawlerAgent : Agent
         bpDict[leg1Lower].SetJointStrength(continuousActions[++i]);
         bpDict[leg2Lower].SetJointStrength(continuousActions[++i]);
         bpDict[leg3Lower].SetJointStrength(continuousActions[++i]);
+
     }
 
     void FixedUpdate()
@@ -306,5 +360,13 @@ public class CrawlerAgent : Agent
     public void TouchedTarget()
     {
         AddReward(1f);
+    }
+
+        public void OnDestroy()
+    {
+
+        if (Academy.IsInitialized){
+            SideChannelManager.UnregisterSideChannel(cameraChannel);
+        }
     }
 }
