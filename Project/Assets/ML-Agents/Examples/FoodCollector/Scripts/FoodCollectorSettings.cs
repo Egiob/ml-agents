@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.MLAgents;
 
+
 public class FoodCollectorSettings : MonoBehaviour
 {
     [HideInInspector]
