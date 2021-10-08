@@ -18,15 +18,11 @@ public class CrawlerAgent : Agent
     public bool useCamera=false;
 
     [Header("Skill")]
-    
 
-    [Range(1, numSkills)]
+    const int numSkills = 5;
+    [Range(1,numSkills)]
     [SerializeField]
-    private int activeSkill = numSkills;
-
-
-    public const int numSkills = 5;
-
+    public int activeSkill = 0;
     public bool useSkills = false;
 
     [Header("Texture")]
@@ -249,6 +245,7 @@ public class CrawlerAgent : Agent
 
         var continuousActions = actionBuffers.ContinuousActions;
         var i = -1;
+        //Debug.Log("action "+Time.time*1000);
         // Pick a new target joint rotation
         bpDict[leg0Upper].SetJointTargetRotation(continuousActions[++i], continuousActions[++i], 0);
         bpDict[leg1Upper].SetJointTargetRotation(continuousActions[++i], continuousActions[++i], 0);
