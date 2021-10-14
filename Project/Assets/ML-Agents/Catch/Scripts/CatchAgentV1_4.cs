@@ -12,8 +12,9 @@ using UnityEngine.InputSystem;
 using System.Linq;
 using UnityEngine.Rendering;
 using System;
+using Random=UnityEngine.Random;
 
-public class CatchAgentV1_1 : Agent
+public class CatchAgentV1_4 : Agent
 {
     float currentTs = 0f;
     public float m_speed = 0f;
@@ -30,13 +31,15 @@ public class CatchAgentV1_1 : Agent
     [Header("Reward")]
     public bool useShowReward;
     public bool useHideReward;
-
     public bool rewardDecrease;
 
     [Header("Discriminator")]
     public bool useHideShowDisc = false;
     bool agentSpotted;
 
+    [Header("Target")]
+    public float targetRotSpeed;
+    float angle;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,8 +61,9 @@ public class CatchAgentV1_1 : Agent
     {   
         
         float dist = Vector3.Distance(Target.position, this.transform.position);
-        Debug.Log(agentSpotted);
+        //Debug.Log(agentSpotted);
         ShootRaysTarget();
+        MoveTarget();
         if (useShowReward){
             if (!agentSpotted){
                 AddReward(-2.0f);
@@ -75,7 +79,7 @@ public class CatchAgentV1_1 : Agent
         }
 
         if (dist>5f){
-            AddReward(-0.5f);
+            AddReward(-0.1f);
 
         }
         else {
@@ -95,6 +99,12 @@ public class CatchAgentV1_1 : Agent
         this.rBody.velocity = Vector3.zero;
         this.transform.eulerAngles = new Vector3(0,180,0);
         this.transform.position= new Vector3(0,0,10);
+
+        float p = Random.value;
+        float angleInit = (Random.value - 0.5f)*90;
+
+
+        Target.transform.eulerAngles = new Vector3(0, angleInit, 0);
 
     }
     
@@ -121,7 +131,16 @@ public class CatchAgentV1_1 : Agent
 
     }
 
+    public void MoveTarget(){
+        angle = Target.transform.localEulerAngles.y;
+        angle = (angle > 180) ? angle - 360 : angle;
+        if (Math.Abs(angle)>45) {
 
+            targetRotSpeed = -targetRotSpeed;
+        }
+
+        Target.transform.eulerAngles = Target.transform.eulerAngles + new Vector3(0, targetRotSpeed, 0);
+    }
 
 
 
@@ -139,7 +158,9 @@ public class CatchAgentV1_1 : Agent
     sensor.AddObservation(targetPos);
     sensor.AddObservation(agentPos);
     sensor.AddObservation(dist);
+    sensor.AddObservation(angle/45f);
     ShootRays(sensor);
+    //Debug.Log(angle/45f);
     if (useSkills){
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
@@ -264,19 +285,19 @@ public class CatchAgentV1_1 : Agent
 
         List<float> discState = new List<float>();
         int raysToShoot = 10;
-        float angle = -Mathf.PI/5;
+        float angle = -Mathf.PI/10 + Mathf.Deg2Rad * Target.transform.localEulerAngles.y;
         float maxDist = 20.0f;
         agentSpotted = false;
         for (int i=0; i<raysToShoot; i++) {  
             float x = Mathf.Sin(angle);
             float z = Mathf.Cos(angle);
-            angle += Mathf.PI/5 / (raysToShoot-1);
+            angle += 2*Mathf.PI/10 / (raysToShoot-1);
 
             Vector3 dir = new Vector3(x, 0, z);
             RaycastHit hit;
             Debug.DrawLine(Target.transform.localPosition, Target.transform.localPosition + maxDist*dir, Color.red);
 
-            if (Physics.SphereCast(Target.transform.position,0.5f, dir, out hit, maxDist)) {
+            if (Physics.SphereCast(Target.transform.localPosition,0.5f, dir, out hit, maxDist)) {
 
 
                 discState.Add(hit.distance/maxDist);
