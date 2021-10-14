@@ -75,12 +75,16 @@ public class CatchAgentV1_1 : Agent
         }
 
         if (dist>5f){
-            AddReward(-0.5f);
+            AddReward(-0.1f);
 
         }
         else {
             if (rewardDecrease){
                 AddReward(-0.1f- (dist - 5.0f)/50.0f);
+            }
+            else{
+                AddReward(-0.1f);
+
             }
 
         }
