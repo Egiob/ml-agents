@@ -31,6 +31,7 @@ public class CatchAgentV1_2 : Agent
     [Header("Reward")]
     public bool useShowReward;
     public bool useHideReward;
+    public bool rewardDecrease;
 
     [Header("Discriminator")]
     public bool useHideShowDisc = false;
@@ -73,15 +74,20 @@ public class CatchAgentV1_2 : Agent
             }
 
         }
-
         if (dist>5f){
             AddReward(-0.1f);
 
         }
         else {
-            AddReward(-0.1f- (dist - 5.0f)/50.0f);
-        }
+            if (rewardDecrease){
+                AddReward(-0.1f- (dist - 5.0f)/50.0f);
+            }
+            else{
+                AddReward(-0.1f);
 
+            }
+
+        }
         
     }
     
