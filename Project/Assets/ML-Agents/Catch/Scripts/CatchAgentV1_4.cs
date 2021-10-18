@@ -38,8 +38,10 @@ public class CatchAgentV1_4 : Agent
     bool agentSpotted;
 
     [Header("Target")]
-    public float targetRotSpeed;
-    float angle;
+    public float targetSpeed;
+
+    float xPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,11 +102,14 @@ public class CatchAgentV1_4 : Agent
         this.transform.eulerAngles = new Vector3(0,180,0);
         this.transform.position= new Vector3(0,0,10);
 
-        float p = Random.value;
-        float angleInit = (Random.value - 0.5f)*90;
+        if (Random.value < 0.5){
+            targetSpeed = -targetSpeed;
+        }
 
+        xPos = (Random.value - 0.5f)*10;
 
-        Target.transform.eulerAngles = new Vector3(0, angleInit, 0);
+        Target.transform.localEulerAngles = new Vector3(0,0,0);
+        Target.transform.localPosition = new Vector3(xPos, 0, -10);
 
     }
     
@@ -132,14 +137,14 @@ public class CatchAgentV1_4 : Agent
     }
 
     public void MoveTarget(){
-        angle = Target.transform.localEulerAngles.y;
-        angle = (angle > 180) ? angle - 360 : angle;
-        if (Math.Abs(angle)>45) {
+        xPos = Target.transform.localPosition.x;
 
-            targetRotSpeed = -targetRotSpeed;
+        if (Math.Abs(xPos) > 10) {
+
+            targetSpeed = -targetSpeed;
         }
 
-        Target.transform.eulerAngles = Target.transform.eulerAngles + new Vector3(0, targetRotSpeed, 0);
+        Target.transform.localPosition = Target.transform.localPosition + new Vector3(targetSpeed, 0, 0);
     }
 
 
@@ -158,7 +163,7 @@ public class CatchAgentV1_4 : Agent
     sensor.AddObservation(targetPos);
     sensor.AddObservation(agentPos);
     sensor.AddObservation(dist);
-    sensor.AddObservation(angle/45f);
+    sensor.AddObservation(xPos);
     ShootRays(sensor);
     //Debug.Log(angle/45f);
     if (useSkills){

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -180,6 +180,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2209814164922530223, guid: 7610b30652bcb56079f7bf81af2ba65c,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a3ed9f2b2fca0b7728d85535263489d4,
+        type: 2}
     - target: {fileID: 3134587383242452739, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: MaxStep
@@ -224,7 +230,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onCollisionEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2120828611}
     - target: {fileID: 5753618597405032156, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: onCollisionEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -238,7 +244,7 @@ PrefabInstance:
     - target: {fileID: 5753618597405032156, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: onCollisionEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CatchAgentV1_3, Assembly-CSharp
+      value: CatchAgentV1_4, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5753618597405032156, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
@@ -304,6 +310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886249019112975549, guid: 7610b30652bcb56079f7bf81af2ba65c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 6988512560995864974, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
@@ -401,6 +412,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40, y: 180, z: 0}
+--- !u!1 &1883683026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8543635954300052465, guid: 7610b30652bcb56079f7bf81af2ba65c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379950526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1883683027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2161631960146846307, guid: 7610b30652bcb56079f7bf81af2ba65c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1379950526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1883683028
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883683026}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 10
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 124
+  m_CollisionDetection: 0
 --- !u!1 &2120828610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5207988438126087490, guid: 7610b30652bcb56079f7bf81af2ba65c,
@@ -422,16 +461,16 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  m_speed: 0
-  Target: {fileID: 0}
-  activeSkills: 0
+  MaxStep: 1000
+  m_speed: 5
+  Target: {fileID: 1883683027}
+  activeSkills: 1
   useSkills: 0
   useShowReward: 0
   useHideReward: 0
   rewardDecrease: 0
   useHideShowDisc: 0
-  targetRotSpeed: 0
+  targetSpeed: 0.1
 --- !u!1 &2138337879
 GameObject:
   m_ObjectHideFlags: 0

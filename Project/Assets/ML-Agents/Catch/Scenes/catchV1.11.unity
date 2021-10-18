@@ -455,8 +455,8 @@ MonoBehaviour:
   activeSkills: 1
   useSkills: 0
   useShowReward: 0
-  useHideReward: 0
-  rewardDecrease: 0
+  useHideReward: 1
+  rewardDecrease: 1
   useHideShowDisc: 1
 --- !u!1 &2126587753
 GameObject:
