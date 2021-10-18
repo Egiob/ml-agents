@@ -58,7 +58,7 @@ public class CatchAgentV1_1 : Agent
     {   
         
         float dist = Vector3.Distance(Target.position, this.transform.position);
-        Debug.Log(agentSpotted);
+        //Debug.Log(agentSpotted);
         ShootRaysTarget();
         if (useShowReward){
             if (!agentSpotted){

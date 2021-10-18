@@ -140,7 +140,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: f712329fb44fd2f439908730bc609342,
+        type: 3}
     - target: {fileID: 475328621733122297, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: m_BehaviorType
@@ -154,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 475328621733122297, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 46
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 475328621733122297, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
@@ -412,7 +413,7 @@ MonoBehaviour:
   m_speed: 5
   Target: {fileID: 264931122}
   activeSkills: 1
-  useSkills: 0
+  useSkills: 1
   useShowReward: 0
   useHideReward: 0
   rewardDecrease: 0

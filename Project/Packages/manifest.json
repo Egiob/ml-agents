@@ -7,6 +7,7 @@
     "com.unity.ml-agents": "2.1.0-exp.1",
     "com.unity.ml-agents.extensions": "file:C:/Users/rapha/Documents/Stage_M2/ml-agents/com.unity.ml-agents.extensions",
     "com.unity.nuget.newtonsoft-json": "2.0.0",
+    "com.unity.recorder": "2.5.5",
     "com.unity.test-framework": "1.1.24",
     "com.unity.toolchain.linux-x86_64": "0.1.19-preview",
     "com.unity.toolchain.macos-x86_64-linux-x86_64": "0.1.22-preview",
