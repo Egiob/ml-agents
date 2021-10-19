@@ -158,35 +158,35 @@ public class CatchAgentV1_1 : Agent
     if (useSkills){
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
-    List<float> discState = ShootRaysTarget();;
+    List<float> discState = new List<float>();
+    List<float> targetRaysOutputs = ShootRaysTarget();
+
     if (useHideShowDisc){
         
         float seen;
 
         
-        List<float> seenL= new List<float>();
+
         seen = Convert.ToSingle(agentSpotted);
-        seenL.Add(seen);
-        //seenL.Add(currentTs);
-        //Debug.Log(currentTs);
- 
-        discChannel.SendDiscriminatorState(seenL);
+        discState.Add(seen);
+
 
     }
     else if (useLeftRightDisc)
     
     {   
         float right;
-        List<float> rightL = new List<float>();
         right = Convert.ToSingle(agentRight);
-        rightL.Add(right);
-        discChannel.SendDiscriminatorState(rightL);
+        discState.Add(right);
+
 
     }
     else{
-        discChannel.SendDiscriminatorState(discState);
-
+        discState.AddRange(targetRaysOutputs);
     }
+
+    discChannel.SendDiscriminatorState(discState);
+
 
 
     for (int i = 0; i<discState.Count;i++){
