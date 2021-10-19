@@ -172,7 +172,7 @@ public class CatchAgentV1_1 : Agent
 
 
     }
-    else if (useLeftRightDisc)
+    if (useLeftRightDisc)
     
     {   
         float right;
@@ -181,7 +181,8 @@ public class CatchAgentV1_1 : Agent
 
 
     }
-    else{
+
+    if (!useHideShowDisc & !useLeftRightDisc){
         discState.AddRange(targetRaysOutputs);
     }
 
