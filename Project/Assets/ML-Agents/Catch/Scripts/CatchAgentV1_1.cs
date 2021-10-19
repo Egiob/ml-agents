@@ -35,7 +35,9 @@ public class CatchAgentV1_1 : Agent
 
     [Header("Discriminator")]
     public bool useHideShowDisc = false;
+    public bool useLeftRightDisc = false;
     bool agentSpotted;
+    bool agentRight;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,15 @@ public class CatchAgentV1_1 : Agent
         float dist = Vector3.Distance(Target.position, this.transform.position);
         //Debug.Log(agentSpotted);
         ShootRaysTarget();
+        if (this.transform.position.x < 0){
+            agentRight=true;
+        }
+        else{
+            agentRight=false;
+        }
+
+
+
         if (useShowReward){
             if (!agentSpotted){
                 AddReward(-2.0f);
@@ -148,7 +159,6 @@ public class CatchAgentV1_1 : Agent
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
     List<float> discState = ShootRaysTarget();;
-
     if (useHideShowDisc){
         
         float seen;
@@ -161,6 +171,16 @@ public class CatchAgentV1_1 : Agent
         //Debug.Log(currentTs);
  
         discChannel.SendDiscriminatorState(seenL);
+
+    }
+    else if (useLeftRightDisc)
+    
+    {   
+        float right;
+        List<float> rightL = new List<float>();
+        right = Convert.ToSingle(agentRight);
+        rightL.Add(right);
+        discChannel.SendDiscriminatorState(rightL);
 
     }
     else{
