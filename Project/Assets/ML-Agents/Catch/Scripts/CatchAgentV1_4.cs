@@ -88,6 +88,10 @@ public class CatchAgentV1_4 : Agent
             if (rewardDecrease){
                 AddReward(-0.1f- (dist - 5.0f)/50.0f);
             }
+            else{
+                AddReward(-0.1f);
+
+            }
 
         }
 
@@ -163,7 +167,6 @@ public class CatchAgentV1_4 : Agent
     sensor.AddObservation(targetPos);
     sensor.AddObservation(agentPos);
     sensor.AddObservation(dist);
-    sensor.AddObservation(xPos);
     ShootRays(sensor);
     //Debug.Log(angle/45f);
     if (useSkills){

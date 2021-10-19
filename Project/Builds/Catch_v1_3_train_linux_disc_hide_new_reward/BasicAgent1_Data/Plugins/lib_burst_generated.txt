@@ -98,6 +98,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
+--compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=CSHARP_7_OR_LATER
 --compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=MLA_UNITY_ANALYTICS_MODULE
@@ -114,12 +115,15 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.InputSystem.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.ONNX.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.Input.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.CommunicatorObjects.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.BurstBLAS.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.Base.dll
 --assembly-folder=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+OneHotJob, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+OneHotJob&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--5d2f24192895d14707019073c29a2548
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+ElementwiseMaxJob, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+ElementwiseMaxJob&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--8896efcff99b6ff320537fab462f1785
@@ -266,6 +270,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
+--compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=CSHARP_7_OR_LATER
 --compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=MLA_UNITY_ANALYTICS_MODULE
@@ -282,12 +287,15 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.InputSystem.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.ONNX.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.Input.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.CommunicatorObjects.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.BurstBLAS.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.Base.dll
 --assembly-folder=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+ElementwiseMaxJob, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+ElementwiseMaxJob&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--8896efcff99b6ff320537fab462f1785
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+ElementwiseMinJob, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+ElementwiseMinJob&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--eb98379af8ee40da66cdd59e3c9cd6b0
@@ -433,6 +441,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
+--compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=CSHARP_7_OR_LATER
 --compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=MLA_UNITY_ANALYTICS_MODULE
@@ -449,12 +458,15 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.InputSystem.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.ONNX.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.Input.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.CommunicatorObjects.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.BurstBLAS.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.Base.dll
 --assembly-folder=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+ReluJob, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+ReluJob&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--49989b543378da9ffc720fa88cca8b3e
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+Relu6Job, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+Relu6Job&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--b6dbb07b26d2e7afce5241a834ec5bbb
@@ -590,6 +602,7 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_LEGACY_INPUT_MANAGER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
+--compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=CSHARP_7_OR_LATER
 --compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=MLA_UNITY_ANALYTICS_MODULE
@@ -606,12 +619,15 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.InputSystem.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.ONNX.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.Input.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.CommunicatorObjects.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.ML-Agents.Extensions.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.dll
 --root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Barracuda.BurstBLAS.dll
+--root-assembly=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\Unity.Recorder.Base.dll
 --assembly-folder=C:\Users\rapha\Documents\Stage_M2\ml-agents\Project\Temp\StagingArea\Data\Managed\
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+ReluJob, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+ReluJob&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--49989b543378da9ffc720fa88cca8b3e
 --method=Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[Unity.Barracuda.BurstCPUOps+Relu6Job, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(Unity.Barracuda.BurstCPUOps+Relu6Job&, Unity.Barracuda, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--b6dbb07b26d2e7afce5241a834ec5bbb

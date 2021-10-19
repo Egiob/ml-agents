@@ -21,7 +21,7 @@ public class CatchAgentV1_3 : Agent
     Rigidbody rBody;
     public Transform Target;
     DiscriminatorSideChannel discChannel;
-    public const int numSkills=2;
+    public const int numSkills=5;
     [Header("Skills")]
     [SerializeField]
     [Range(1,numSkills)]
@@ -104,6 +104,10 @@ public class CatchAgentV1_3 : Agent
         this.transform.position= new Vector3(0,0,10);
 
         float p = Random.value;
+        if (p<=0.5){
+            targetRotSpeed = -targetRotSpeed;
+        }
+
         float angleInit = (Random.value - 0.5f)*90;
 
 
