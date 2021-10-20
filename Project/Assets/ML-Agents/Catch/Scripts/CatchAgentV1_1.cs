@@ -36,6 +36,7 @@ public class CatchAgentV1_1 : Agent
     [Header("Discriminator")]
     public bool useHideShowDisc = false;
     public bool useLeftRightDisc = false;
+    public bool externalDisc = false;
     bool agentSpotted;
     bool agentRight;
 
@@ -44,12 +45,14 @@ public class CatchAgentV1_1 : Agent
     {
         agentSpotted = false;
         rBody = this.gameObject.GetComponent<Rigidbody>();
+        if (externalDisc){
         discChannel = new DiscriminatorSideChannel();
         SideChannelManager.RegisterSideChannel(discChannel);
+        }
     }
 
     private void OnDestroy() {
-        if (Academy.IsInitialized){
+        if (Academy.IsInitialized & externalDisc){
             SideChannelManager.UnregisterSideChannel(discChannel);
         }
 
@@ -61,7 +64,11 @@ public class CatchAgentV1_1 : Agent
         
         float dist = Vector3.Distance(Target.position, this.transform.position);
         //Debug.Log(agentSpotted);
+
         ShootRaysTarget();
+
+
+
         if (this.transform.position.x < 0){
             agentRight=true;
         }
@@ -158,44 +165,49 @@ public class CatchAgentV1_1 : Agent
     if (useSkills){
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
-    List<float> discState = new List<float>();
-    List<float> targetRaysOutputs = ShootRaysTarget();
-
-    if (useHideShowDisc){
-        
-        float seen;
-
-        
-
-        seen = Convert.ToSingle(agentSpotted);
-        discState.Add(seen);
 
 
-    }
-    if (useLeftRightDisc)
-    
-    {   
-        float right;
-        right = Convert.ToSingle(agentRight);
-        discState.Add(right);
+    if (externalDisc){
+        List<float> discState = new List<float>();
 
 
-    }
+        List<float> targetRaysOutputs = ShootRaysTarget();
 
-    if (!useHideShowDisc & !useLeftRightDisc){
-        discState.AddRange(targetRaysOutputs);
-    }
+        if (useHideShowDisc){
+            
+            float seen;
 
-    discChannel.SendDiscriminatorState(discState);
+            
+
+            seen = Convert.ToSingle(agentSpotted);
+            discState.Add(seen);
 
 
-
-    for (int i = 0; i<discState.Count;i++){
-            //Debug.Log(discState[i]);
         }
-    
-    currentTs++;
+        if (useLeftRightDisc)
 
+        {   
+            float right;
+            right = Convert.ToSingle(agentRight);
+            discState.Add(right);
+
+
+        }
+
+        if (!useHideShowDisc & !useLeftRightDisc){
+            discState.AddRange(targetRaysOutputs);
+        }
+
+        discChannel.SendDiscriminatorState(discState);
+
+
+
+        for (int i = 0; i<discState.Count;i++){
+                //Debug.Log(discState[i]);
+            }
+
+        currentTs++;
+        }
     }
 
 

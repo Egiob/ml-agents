@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,7 +140,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: ff216403eda8a7dc6a9b606ed876a736,
+        type: 3}
     - target: {fileID: 475328621733122297, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: m_BehaviorType
@@ -154,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 475328621733122297, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 46
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 475328621733122297, guid: 7610b30652bcb56079f7bf81af2ba65c,
         type: 3}
@@ -432,7 +433,7 @@ MonoBehaviour:
   m_speed: 5
   Target: {fileID: 264931122}
   activeSkills: 0
-  useSkills: 0
+  useSkills: 1
   useShowReward: 0
   useHideReward: 0
   rewardDecrease: 0
