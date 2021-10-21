@@ -47,7 +47,11 @@ public class CatchAgentV1_3 : Agent
         rBody = this.gameObject.GetComponent<Rigidbody>();
         discChannel = new DiscriminatorSideChannel();
         SideChannelManager.RegisterSideChannel(discChannel);
+        Academy.Instance.OnEnvironmentReset += EnvironmentReset;
+        
+        
     }
+
 
     private void OnDestroy() {
         if (Academy.IsInitialized){
@@ -55,6 +59,13 @@ public class CatchAgentV1_3 : Agent
         }
 
         
+    }
+    
+    void EnvironmentReset(){
+
+        int seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
+        Academy.Instance.InferenceSeed = seed;
+
     }
     // Update is called once per frame
     void FixedUpdate()

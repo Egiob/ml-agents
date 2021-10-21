@@ -20,7 +20,7 @@ public class CatchAgentV1_1 : Agent
     Rigidbody rBody;
     public Transform Target;
     DiscriminatorSideChannel discChannel;
-    public const int numSkills=2;
+    public const int numSkills=4;
     [Header("Skills")]
     [SerializeField]
     [Range(1,numSkills)]
