@@ -65,6 +65,7 @@ public class CatchAgentV1_3 : Agent
 
         int seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
         Academy.Instance.InferenceSeed = seed;
+        UnityEngine.Random.InitState(seed);
 
     }
     // Update is called once per frame
