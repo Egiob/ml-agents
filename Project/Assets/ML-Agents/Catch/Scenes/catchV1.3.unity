@@ -434,9 +434,9 @@ MonoBehaviour:
   activeSkills: 0
   useSkills: 0
   useShowReward: 0
-  useHideReward: 0
+  useHideReward: 1
   rewardDecrease: 0
-  useHideShowDisc: 1
+  useHideShowDisc: 0
   targetRotSpeed: 0.5
 --- !u!1 &2138337879
 GameObject:
