@@ -40,6 +40,7 @@ public class CatchAgentV1_3 : Agent
     [Header("Target")]
     public float targetRotSpeed;
     float angle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,11 @@ public class CatchAgentV1_3 : Agent
         rBody = this.gameObject.GetComponent<Rigidbody>();
         discChannel = new DiscriminatorSideChannel();
         SideChannelManager.RegisterSideChannel(discChannel);
-        Academy.Instance.OnEnvironmentReset += EnvironmentReset;
+        int isInference = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("inference", 0.0f);
+        if (isInference == 1){
+            Academy.Instance.OnEnvironmentReset += EnvironmentReset;
+        }
+        
         
         
     }
@@ -62,7 +67,7 @@ public class CatchAgentV1_3 : Agent
     }
     
     void EnvironmentReset(){
-
+        
         int seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
         Academy.Instance.InferenceSeed = seed;
         UnityEngine.Random.InitState(seed);
