@@ -48,10 +48,9 @@ public class CatchAgentV1_3 : Agent
         rBody = this.gameObject.GetComponent<Rigidbody>();
         discChannel = new DiscriminatorSideChannel();
         SideChannelManager.RegisterSideChannel(discChannel);
-        int isInference = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("inference", 0.0f);
-        if (isInference == 1){
-            Academy.Instance.OnEnvironmentReset += EnvironmentReset;
-        }
+
+        Academy.Instance.OnEnvironmentReset += EnvironmentReset;
+        
         
         
         
@@ -67,10 +66,12 @@ public class CatchAgentV1_3 : Agent
     }
     
     void EnvironmentReset(){
-        
-        int seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
-        Academy.Instance.InferenceSeed = seed;
-        UnityEngine.Random.InitState(seed);
+        int isInference = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("inference", 0.0f);
+        if (isInference == 1){
+            int seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
+            Academy.Instance.InferenceSeed = seed;
+            UnityEngine.Random.InitState(seed);
+        }
 
     }
     // Update is called once per frame
