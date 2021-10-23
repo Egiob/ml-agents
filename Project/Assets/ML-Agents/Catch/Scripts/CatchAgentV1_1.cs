@@ -30,9 +30,10 @@ public class CatchAgentV1_1 : Agent
     [Header("Reward")]
     public bool useShowReward;
     public bool useHideReward;
-
     public bool rewardDecrease;
 
+    [Header("State space")]
+    public bool includeHideShow = false;
     [Header("Discriminator")]
     public bool useHideShowDisc = false;
     public bool useLeftRightDisc = false;
@@ -161,7 +162,13 @@ public class CatchAgentV1_1 : Agent
     sensor.AddObservation(targetPos);
     sensor.AddObservation(agentPos);
     sensor.AddObservation(dist);
+
+    if (includeHideShow){
+        sensor.AddObservation(Convert.ToSingle(agentSpotted));
+    }
+
     ShootRays(sensor);
+
     if (useSkills){
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
