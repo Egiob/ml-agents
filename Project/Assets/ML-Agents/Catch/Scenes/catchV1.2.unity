@@ -417,7 +417,9 @@ MonoBehaviour:
   useShowReward: 0
   useHideReward: 0
   rewardDecrease: 0
-  useHideShowDisc: 1
+  includeHideShow: 0
+  externalDisc: 0
+  useHideShowDisc: 0
 --- !u!1 &2138337879
 GameObject:
   m_ObjectHideFlags: 0
