@@ -16,7 +16,6 @@ using Random=UnityEngine.Random;
 
 public class CatchAgentV1_3 : Agent
 {
-    float currentTs = 0f;
     public float m_speed = 0f;
     Rigidbody rBody;
     public Transform Target;
@@ -33,9 +32,14 @@ public class CatchAgentV1_3 : Agent
     public bool useHideReward;
     public bool rewardDecrease;
 
+    [Header("State space")]
+    public bool includeHideShow = false;
+    
     [Header("Discriminator")]
+    public bool externalDisc = false;
     public bool useHideShowDisc = false;
     bool agentSpotted;
+
 
     [Header("Target")]
     public float targetRotSpeed;
@@ -115,7 +119,6 @@ public class CatchAgentV1_3 : Agent
     
     public override void OnEpisodeBegin(){
 
-        currentTs = 0f;
         this.rBody.angularVelocity = Vector3.zero;
         this.rBody.velocity = Vector3.zero;
         this.transform.eulerAngles = new Vector3(0,180,0);
@@ -184,41 +187,38 @@ public class CatchAgentV1_3 : Agent
     sensor.AddObservation(agentPos);
     sensor.AddObservation(dist);
     sensor.AddObservation(angle/45f);
+    if (includeHideShow){
+        sensor.AddObservation(Convert.ToSingle(agentSpotted));
+    }
     ShootRays(sensor);
     //Debug.Log(angle/45f);
     if (useSkills){
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
-    List<float> discState = ShootRaysTarget();;
+    if (externalDisc){
+        List<float> discState = new List<float>();
+        List<float> targetRaysOutputs = ShootRaysTarget();
 
-    if (useHideShowDisc){
-        
-        float seen;
+        if (useHideShowDisc){
+            
+            float seen;
 
-        
-        List<float> seenL= new List<float>();
-        seen = Convert.ToSingle(agentSpotted);
-        seenL.Add(seen);
-        //seenL.Add(currentTs);
-        //Debug.Log(currentTs);
- 
-        discChannel.SendDiscriminatorState(seenL);
+            
 
-    }
-    else{
-        discChannel.SendDiscriminatorState(discState);
-
-    }
+            seen = Convert.ToSingle(agentSpotted);
+            discState.Add(seen);
 
 
-    for (int i = 0; i<discState.Count;i++){
-            //Debug.Log(discState[i]);
+        }     
+
+        else{
+            discState.AddRange(targetRaysOutputs);
         }
-    
-    currentTs++;
+
+        discChannel.SendDiscriminatorState(discState);
+     }
 
     }
-
 
 
 
