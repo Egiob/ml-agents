@@ -142,6 +142,10 @@ public class CatchAgentV1_4 : Agent
             Academy.Instance.InferenceSeed = seed;
         }
 
+        if (targetSpeed < 0){
+            targetSpeed = -targetSpeed;
+        }
+
         if (Random.value < 0.5){
             targetSpeed = -targetSpeed;
         }
