@@ -47,7 +47,7 @@ public class CatchAgentV1_2 : Agent
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   getEnvParameters();
         agentSpotted = false;
         rBody = this.gameObject.GetComponent<Rigidbody>();
         if (externalDisc){
@@ -75,6 +75,13 @@ public class CatchAgentV1_2 : Agent
             UnityEngine.Random.InitState(seed);
         }
 
+    }
+
+    void getEnvParameters(){
+        useHideReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_reward",0.0f)!=0.0f;
+        useShowReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_show_reward",0.0f)!=0.0f;
+        externalDisc = Academy.Instance.EnvironmentParameters.GetWithDefault("use_external_discriminator",0.0f)!=0.0f;
+        useHideShowDisc =  Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_show_discriminator",0.0f)!=0.0f;
     }
 
     // Update is called once per frame
@@ -139,18 +146,6 @@ public class CatchAgentV1_2 : Agent
     
     public void MoveAgent(ActionSegment<float> act)
     {
-        /*var rotate = Vector3.zero;
-        var forward = Vector3.zero;
-
-
-
-        forward[2] = act[0];
-        rotate[1] = act[1];
-
-        this.transform.Rotate(rotate, Time.deltaTime * 100f);
-        this.rBody.AddRelativeForce(Vector3.Max(forward,Vector3.zero) * m_speed,
-            ForceMode.VelocityChange);*/
-
 
         var forward = Vector3.zero;
         forward[0] = act[0];

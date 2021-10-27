@@ -50,8 +50,9 @@ public class CatchAgentV1_3 : Agent
     int isInference = 0;
     int seed = 1;
     // Start is called before the first frame update
+    
     void Start()
-    {
+    {   getEnvParameters();
         agentSpotted = false;
         rBody = this.gameObject.GetComponent<Rigidbody>();
         if (externalDisc){
@@ -85,6 +86,14 @@ public class CatchAgentV1_3 : Agent
             UnityEngine.Random.InitState(seed);
         }
 
+    }
+
+        
+    void getEnvParameters(){
+        useHideReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_reward",0.0f)!=0.0f;
+        useShowReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_show_reward",0.0f)!=0.0f;
+        externalDisc = Academy.Instance.EnvironmentParameters.GetWithDefault("use_external_discriminator",0.0f)!=0.0f;
+        useHideShowDisc =  Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_show_discriminator",0.0f)!=0.0f;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -131,7 +140,10 @@ public class CatchAgentV1_3 : Agent
         this.rBody.velocity = Vector3.zero;
         this.transform.eulerAngles = new Vector3(0,180,0);
         this.transform.position= new Vector3(0,0,10);
+        if (targetRotSpeed < 0){
+            targetRotSpeed = -targetRotSpeed;
 
+        }
         float p = Random.value;
         if (p<=0.5){
             targetRotSpeed = -targetRotSpeed;

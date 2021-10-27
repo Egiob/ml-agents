@@ -49,6 +49,7 @@ public class CatchAgentV1_1 : Agent
     // Start is called before the first frame update
     void Start()
     {
+        getEnvParameters();
         agentSpotted = false;
         rBody = this.gameObject.GetComponent<Rigidbody>();
         if (externalDisc){
@@ -74,6 +75,12 @@ public class CatchAgentV1_1 : Agent
         }
     }
 
+    void getEnvParameters(){
+        useHideReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_reward",0.0f)!=0.0f;
+        useShowReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_show_reward",0.0f)!=0.0f;
+        externalDisc = Academy.Instance.EnvironmentParameters.GetWithDefault("use_external_discriminator",0.0f)!=0.0f;
+        useHideShowDisc =  Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_show_discriminator",0.0f)!=0.0f;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {   
