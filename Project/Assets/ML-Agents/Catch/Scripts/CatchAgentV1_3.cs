@@ -45,13 +45,21 @@ public class CatchAgentV1_3 : Agent
     public float targetRotSpeed;
     float angle;
 
+
+    [Header("Runtime")]
+    int isInference = 0;
+    int seed = 1;
     // Start is called before the first frame update
     void Start()
     {
         agentSpotted = false;
         rBody = this.gameObject.GetComponent<Rigidbody>();
-        discChannel = new DiscriminatorSideChannel();
-        SideChannelManager.RegisterSideChannel(discChannel);
+        if (externalDisc){
+            discChannel = new DiscriminatorSideChannel();
+            SideChannelManager.RegisterSideChannel(discChannel);
+        
+        }
+
 
         Academy.Instance.OnEnvironmentReset += EnvironmentReset;
         
@@ -62,7 +70,7 @@ public class CatchAgentV1_3 : Agent
 
 
     private void OnDestroy() {
-        if (Academy.IsInitialized){
+        if (Academy.IsInitialized & externalDisc){
             SideChannelManager.UnregisterSideChannel(discChannel);
         }
 
@@ -70,9 +78,9 @@ public class CatchAgentV1_3 : Agent
     }
     
     void EnvironmentReset(){
-        int isInference = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("inference", 0.0f);
+        isInference = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("inference", 0.0f);
         if (isInference == 1){
-            int seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
+            seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
             Academy.Instance.InferenceSeed = seed;
             UnityEngine.Random.InitState(seed);
         }
@@ -195,7 +203,7 @@ public class CatchAgentV1_3 : Agent
     if (useSkills){
         sensor.AddOneHotObservation(activeSkills-1,numSkills);
     }
-    if (externalDisc){
+    if (externalDisc & isInference == 0){
         List<float> discState = new List<float>();
         List<float> targetRaysOutputs = ShootRaysTarget();
 

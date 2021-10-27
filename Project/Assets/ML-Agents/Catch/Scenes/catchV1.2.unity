@@ -414,7 +414,7 @@ MonoBehaviour:
   activeSkills: 1
   useSkills: 0
   useShowReward: 0
-  useHideReward: 0
+  useHideReward: 1
   rewardDecrease: 0
   includeHideShow: 0
   externalDisc: 0
