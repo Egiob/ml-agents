@@ -12,7 +12,7 @@ using UnityEngine.InputSystem;
 using System.Linq;
 using UnityEngine.Rendering;
 using System;
-using Random=UnityEngine.Random;
+using Random = UnityEngine.Random;
 
 public class CatchAgentV1_4 : Agent
 {
@@ -29,9 +29,9 @@ public class CatchAgentV1_4 : Agent
     public bool useSkills = false;
 
     [Header("Reward")]
-    public bool useShowReward;
-    public bool useHideReward;
-    public bool rewardDecrease;
+    public bool useShowReward = false;
+    public bool useHideReward = false;
+    public bool rewardDecrease = false;
 
     [Header("State space")]
     public bool includeHideShow = false;
@@ -44,9 +44,11 @@ public class CatchAgentV1_4 : Agent
     [Header("Target")]
     public float targetSpeed;
 
+    public int seedMan = 0;
     [Header("Runtime")]
     int isInference = 0;
     int seed = 1;
+    
 
     float xPos;
 
@@ -60,7 +62,7 @@ public class CatchAgentV1_4 : Agent
             SideChannelManager.RegisterSideChannel(discChannel);
         
         }
-
+        getEnvParameters();
         Academy.Instance.OnEnvironmentReset += EnvironmentReset;
     }
 
@@ -72,12 +74,19 @@ public class CatchAgentV1_4 : Agent
         
     }
     
+    void getEnvParameters(){
+        useHideReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_reward",0.0f)!=0.0f;
+        useShowReward = Academy.Instance.EnvironmentParameters.GetWithDefault("use_show_reward",0.0f)!=0.0f;
+        externalDisc = Academy.Instance.EnvironmentParameters.GetWithDefault("use_external_discriminator",0.0f)!=0.0f;
+        useHideShowDisc =  Academy.Instance.EnvironmentParameters.GetWithDefault("use_hide_show_discriminator",0.0f)!=0.0f;
+
+    }
+
     void EnvironmentReset(){
         isInference = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("inference", 0.0f);
         if (isInference == 1){
             seed = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("seed",1.0f);
             Academy.Instance.InferenceSeed = seed;
-            UnityEngine.Random.InitState(seed);
         }
 
     }
@@ -129,10 +138,16 @@ public class CatchAgentV1_4 : Agent
         this.transform.eulerAngles = new Vector3(0,180,0);
         this.transform.position= new Vector3(0,0,10);
 
+        if (isInference==1){
+            Random.InitState(seed);
+            Academy.Instance.InferenceSeed = seed;
+        }
+
         if (Random.value < 0.5){
             targetSpeed = -targetSpeed;
         }
-
+        Debug.Log(Random.value);
+        Debug.Log(Random.value);
         xPos = (Random.value - 0.5f)*10;
 
         Target.transform.localEulerAngles = new Vector3(0,0,0);

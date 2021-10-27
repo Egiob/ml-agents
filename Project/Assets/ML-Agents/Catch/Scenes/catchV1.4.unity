@@ -467,12 +467,13 @@ MonoBehaviour:
   activeSkills: 1
   useSkills: 0
   useShowReward: 0
-  useHideReward: 1
+  useHideReward: 0
   rewardDecrease: 0
   includeHideShow: 0
   externalDisc: 0
   useHideShowDisc: 0
   targetSpeed: 0.1
+  seedMan: 0
 --- !u!1 &2138337879
 GameObject:
   m_ObjectHideFlags: 0
